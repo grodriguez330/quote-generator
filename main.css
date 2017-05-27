@@ -1,16 +1,15 @@
 body {
-  background-image: url(images/grungeblue.jpg);
+  background-image: url(images/pattern.png);
   background-repeat: repeat;
-  
+
 }
 
-
-
-body, h1, h3, p {
-  font-family: Helvetica, Arial, sans-serif;
+body, h1, h3, p, a {
+  font-family: 'Raleway', sans-serif;
+  font-size: 18px;
 }
 
-hr{
+hr {
   width: 600px;
   border-bottom: 1px solid black;
 }
@@ -18,9 +17,28 @@ hr{
 .container {
   text-align: center;
   padding-top: 50px;
+  }
+
+.quote-box {
+  border-radius:4px;
+  position:relative;
+  top: -50px;
+  margin:5% auto auto auto;
+  width:450px;
+  padding:40px 50px;
+  display:table;
+  background-color:#fff
+
 }
 
-#quote-box {
-  text-align: center;
-  background-color: white;
+.buttons{
+  padding-top: 5px;
+}
+
+#quote {
+
+}
+
+#author {
+
 }
