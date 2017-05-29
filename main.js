@@ -1,35 +1,21 @@
-$(document).ready(function() {
-
-  var quote; // Global variable to store new quote
-  var author; // Global variable to store new author of quote
-
-
-
-  function getNewQuote() {
-    $.ajax({
-      url: 'http://api.forismatic.com/api/1.0',
-      jsonp: 'jsonp',
-      dataType: 'jsonp',
-      data: {
-        method: 'getQuote',
-        lang: 'en',
-        format: 'jsonp'
-      },
-      success: function(response) {
-        quote = response.quoteText;
-        author = response.quoteAuthor;
-        if(author) {
-          $('#author').text('- ' + author);
-        } else {
-          $('#author').text('- unknown');
-        }
+function randomQuote() {
+  $.ajax({
+      url: "https://api.forismatic.com/api/1.0/?",
+      dataType: "jsonp",
+      data: "method=getQuote&format=jsonp&lang=en&jsonp=?",
+      success: function( response ) {
+        $("#quote").text(response.quoteText);
+        $("#author").text("- " + response.quoteAuthor);
+        $(".share-quote").attr("href", "https://twitter.com/home/?status=" + response.quoteText +
+          ' (' + response.quoteAuthor + ')');
       }
-    });
-  }
-  getNewQuote();
-
-  $('.get-quote').on('click', function(event) {
-    event.preventDefault();
-    getNewQuote();
   });
+}
+
+$(function() {
+  randomQuote();
+});
+
+$("#get-quote").click(function(){
+  randomQuote();
 });
